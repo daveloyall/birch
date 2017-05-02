@@ -23,6 +23,7 @@ host, even though that isn't valid according to RFC2812."
 - COMMAND as a keyword, numerics are converted to their keyword equivalent
 - PARAMS as a list of strings
 The trailing argument, if available, will be the last item in PARAMS"
+  (log:debug message)
   (let* ((final-argument (search " :" message))
          (arguments (append (split-sequence #\Space
                                             message
