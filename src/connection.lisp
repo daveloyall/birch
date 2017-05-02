@@ -52,6 +52,11 @@
              :initform ()
              :accessor channels)))
 
+(defmethod print-object ((obj user) stream)
+  (print-unreadable-object (obj stream)
+    (with-slots (nick user host) obj
+      (format stream "~A (~A@~A)" nick user host))))
+
 (deftype channel-type ()
   '(member :public :private :secret))
 
